@@ -1,23 +1,24 @@
+/* eslint-disable no-debugger */
 'use strict';
 
 // Complete this algo
 const binarySearch = (array, target) => {
 	const midPt = Math.floor(array.length / 2);
-
 	if (array[midPt] === target) {
 		return true;
 	}
 
-	if (array.length === 0) {
+	if (array.length === 1 || array.length === 0) {
 		return false;
 	}
 
 	if (target < array[midPt]) {
-		return binarySearch(array.slice(0, midPt))
+		return binarySearch(array.splice(0, midPt), target)
 	}
 
 	if (target > array[midPt]) {
-		return binarySearch(array.slice(midPt))
+
+		return binarySearch(array.splice(midPt), target)
 	}
 };
 
